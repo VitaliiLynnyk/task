@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">lab_6</string>
+    <string name="first">first</string>
+    <string name="about_wot">about WOT</string>
+    <string name="about_wot_inf">The huge tank arsenal at your disposal includes more than 220 vehicles from Germany,
+        France, the Soviet Union, USA, Great Britain and China, and from the 1930’s to the 1950’s."</string>
+    <string name="about_wot_huge_tanks">
+        World of Tanks is a team-based massively multiplayer online game dedicated to
+        armored warfare in the mid-20th century. Throw yourself into epic tank battles shoulder to shoulder with other steel cowboys to dominate the world with tank supremacy!</string>
+    <string name="kw_1">kw-1</string>
+    <string name="kw_1_inf">Engine Power  450 hp \nSpeed Limit 34/10 km/h \nTraverse  18 deg / s \nPower/Wt Ratio  9.49 hp/t\n Pivot No\n
+     Hull Armor  75/75/70 mm  \nTurret Armor  90/75/75 mm  \n
+    </string>
+    <string name="kw_1_develop">The development was started in late 1938. A prototype was built in August 1939.
+        The first deployment was on the Mannerheim Line in December 1939. 2,769 vehicles were manufactured from March 1940 to August
+        1942.Participated in the war with Finland and the Great Patriotic War."</string>
+</resources>
