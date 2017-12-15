@@ -1,7 +1,5 @@
 package ark.todoapp;
 
-import android.support.annotation.NonNull;
-
 /**
  * Created by linni on 10/9/2017.
  */

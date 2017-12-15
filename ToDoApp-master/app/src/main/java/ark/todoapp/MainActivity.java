@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity{
                         dialog.dismiss();
                     }
                 });
-                dialogBtnDel.setOnClickListener(new View.OnClickListener() {
+                        dialogBtnDel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
-
         dbHelper.close();
     }
 

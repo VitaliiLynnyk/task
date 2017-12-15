@@ -43,7 +43,7 @@ class ToDoListAdapter extends ArrayAdapter<ToDoList> {
         TextView name = (TextView) view.findViewById(R.id.name);
         TextView color = (TextView) view.findViewById(R.id.color);
 
-        CheckBox  checkBox = (CheckBox) view.findViewById(R.id.checkBox);
+        CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBox);
         Button btnDel = (Button) view.findViewById(R.id.btnDel);
 
         name.setText(toDoListList.get(position).getName());
@@ -54,6 +54,7 @@ class ToDoListAdapter extends ArrayAdapter<ToDoList> {
             public void onClick(View view) {
                 dbHelper.deleteContact(toDoListList.get(position).getId());
                 toDoListList.remove(position);
+
                 notifyDataSetChanged();
             }
         });
