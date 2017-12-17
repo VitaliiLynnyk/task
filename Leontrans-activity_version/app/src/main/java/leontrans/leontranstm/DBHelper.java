@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Integer deleteContact (Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(MY_TABLE_TO_DO_LIST,
-                "id_selected_item = ? ",
+                "id_selected_item=? ",
                 new String[] { Integer.toString(id) });
     }
 

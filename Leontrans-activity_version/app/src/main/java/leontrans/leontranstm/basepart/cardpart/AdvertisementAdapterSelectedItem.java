@@ -49,11 +49,8 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
 
         icon_asterisk = (ImageView) view.findViewById(R.id.icon_asterisk);
 
-        if(advertisementInfoList.get(position).getIcon_asterisk_inf() == 0){
-            icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-        }else {
-            icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
-        }
+        icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
+
 
         TextView trans_type = (TextView) view.findViewById(R.id.trans_type);
         TextView date_from = (TextView) view.findViewById(R.id.date_from);
@@ -137,21 +134,9 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
         icon_asterisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast_choose = Toast.makeText(getContext(),"Оголошення додано до ібранного", Toast.LENGTH_SHORT);
-                Toast toast_close = Toast.makeText(getContext(),"Оголошення  видалено", Toast.LENGTH_SHORT);
-
-                if(advertisementInfoList.get(position).getIcon_asterisk_inf() == 0){
-                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
-                    advertisementInfoList.get(position).setIcon_asterisk_inf(1);
-                    dbHelper.insertContact(advertisementInfoList.get(position).getId());
-
-                    toast_choose.show();
-                }else{
-                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-                    advertisementInfoList.get(position).setIcon_asterisk_inf(0);
-                    dbHelper.deleteContact(advertisementInfoList.get(position).getId());
-                    toast_close.show();
-                }
+                dbHelper.deleteContact(advertisementInfoList.get(position).getId());
+                advertisementInfoList.remove(position);
+                notifyDataSetChanged();
             }
         });
         dbHelper.close();

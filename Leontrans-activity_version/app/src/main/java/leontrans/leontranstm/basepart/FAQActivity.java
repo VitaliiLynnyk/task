@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.mikepenz.materialdrawer.Drawer;
@@ -33,6 +34,7 @@ public class FAQActivity extends AppCompatActivity {
     private ProgressBar loaderView;
     public AdvertisementAdapterSelectedItem selected_item_adapter;
     public ArrayList<AdvertisementInfo> arrayListSelectedItem = new ArrayList<>();
+    private ListView advertisementListView;
 
     @Override
 
@@ -42,18 +44,29 @@ public class FAQActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        loaderView = (ProgressBar) findViewById(R.id.loading_spinner);
+        loaderView.setVisibility(View.GONE);
 
         mainNavigationDrawer = new NavigationDrawerMain(this, toolbar, Constants.NAVMENU_FAQ).getMainNavigationDrawer();
         informationList = dbHelper.getAllTODOLIST();
 
-       /* selected_item_adapter = new AdvertisementAdapterSelectedItem(this,R.layout.list_selected_item_layout,arrayListSelectedItem);
+        selected_item_adapter = new AdvertisementAdapterSelectedItem(this,R.layout.list_selected_item_layout,arrayListSelectedItem);
 
-        for(int i = 0 ; i < dbHelper.numberOfRows() ; i++){
-            Log.d("helper",  informationList.get(i).getId_selected_item()+"");
+
+        advertisementListView = (ListView)findViewById(R.id.listView);
+        advertisementListView.setAdapter(selected_item_adapter);
+
+        Log.d("select", informationList.size()+"");
+        for(int i = 0 ; i < informationList.size() ; i++){
+            for(int j = 0 ; j < arrayListAdvertisement.size() ; j++){
+                Log.d("select",informationList.get(i).getId_selected_item()+" "+arrayListAdvertisement.get(j).getId() );
+                if(informationList.get(i).getId_selected_item()==arrayListAdvertisement.get(j).getId()){
+                    arrayListSelectedItem.add(arrayListAdvertisement.get(j));
+                }
+            }
         }
+        selected_item_adapter.notifyDataSetChanged();
 
-        arrayListSelectedItem.add(arrayListAdvertisement.get(1));
-        selected_item_adapter.notifyDataSetChanged();*/
     }
 
     public void onBackPressed(){
