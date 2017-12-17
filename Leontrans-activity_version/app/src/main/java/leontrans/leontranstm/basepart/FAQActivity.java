@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 import leontrans.leontranstm.DBinformation;
 import leontrans.leontranstm.R;
+import leontrans.leontranstm.basepart.cardpart.AdvertisementAdapter;
+import leontrans.leontranstm.basepart.cardpart.AdvertisementAdapterSelectedItem;
+import leontrans.leontranstm.basepart.cardpart.AdvertisementInfo;
 import leontrans.leontranstm.basepart.cardpart.CardsActivity;
 import leontrans.leontranstm.utils.Constants;
 import leontrans.leontranstm.utils.NavigationDrawerMain;
@@ -28,11 +31,14 @@ public class FAQActivity extends AppCompatActivity {
     private Drawer.Result mainNavigationDrawer;
     private ArrayList<DBinformation> informationList;
     private ProgressBar loaderView;
+    public AdvertisementAdapterSelectedItem selected_item_adapter;
+    public ArrayList<AdvertisementInfo> arrayListSelectedItem = new ArrayList<>();
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_selected_item_layout);
+        setContentView(R.layout.activity_faq);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -40,9 +46,14 @@ public class FAQActivity extends AppCompatActivity {
         mainNavigationDrawer = new NavigationDrawerMain(this, toolbar, Constants.NAVMENU_FAQ).getMainNavigationDrawer();
         informationList = dbHelper.getAllTODOLIST();
 
+       /* selected_item_adapter = new AdvertisementAdapterSelectedItem(this,R.layout.list_selected_item_layout,arrayListSelectedItem);
+
         for(int i = 0 ; i < dbHelper.numberOfRows() ; i++){
             Log.d("helper",  informationList.get(i).getId_selected_item()+"");
         }
+
+        arrayListSelectedItem.add(arrayListAdvertisement.get(1));
+        selected_item_adapter.notifyDataSetChanged();*/
     }
 
     public void onBackPressed(){

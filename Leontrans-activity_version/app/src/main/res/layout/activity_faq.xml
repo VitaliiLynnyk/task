@@ -1,34 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="leontrans.leontranstm.basepart.FAQActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include
-            layout="@layout/toolbar"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="F.A.Q. FRAGMENT"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="0dp">
 
-    </LinearLayout>
+                <include
+                    layout="@layout/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <ProgressBar android:id="@+id/loading_spinner"
-        style="?android:progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/content_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp">
 
-</FrameLayout>
+                    <ListView
+                        android:id="@+id/listView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:divider="#464646"
+                        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                        android:dividerHeight="10.0sp" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/btToBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_toEndOf="@+id/btToTop"
+                        android:layout_toRightOf="@+id/btToTop"
+                        android:clickable="true"
+                        app:fabSize="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:srcCompat="@android:drawable/arrow_down_float" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/btToTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="16dp"
+                        android:clickable="true"
+                        app:fabSize="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:srcCompat="@android:drawable/arrow_up_float" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+            <ProgressBar android:id="@+id/loading_spinner"
+                style="?android:progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nvView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@android:color/black"
+            app:itemTextColor="#8B0000"
+            app:menu="@menu/drawer_filter_view" />
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
