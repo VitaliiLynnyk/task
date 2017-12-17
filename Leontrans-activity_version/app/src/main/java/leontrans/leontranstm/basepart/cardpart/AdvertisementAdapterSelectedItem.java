@@ -23,6 +23,8 @@ import leontrans.leontranstm.basepart.FAQActivity;
 import leontrans.leontranstm.basepart.userprofile.UserCardOwenerProfile;
 import leontrans.leontranstm.utils.SystemServicesUtils;
 
+import static leontrans.leontranstm.basepart.cardpart.CardsActivity.arrayListAdvertisement;
+
 
 public class AdvertisementAdapterSelectedItem extends ArrayAdapter<AdvertisementInfo> {
     private FAQActivity activity;
@@ -135,6 +137,7 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
             @Override
             public void onClick(View view) {
                 dbHelper.deleteContact(advertisementInfoList.get(position).getId());
+                arrayListAdvertisement.get(position).setIcon_asterisk_inf(0);
                 advertisementInfoList.remove(position);
                 notifyDataSetChanged();
             }

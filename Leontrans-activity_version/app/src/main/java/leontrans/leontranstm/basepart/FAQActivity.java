@@ -48,25 +48,26 @@ public class FAQActivity extends AppCompatActivity {
         loaderView.setVisibility(View.GONE);
 
         mainNavigationDrawer = new NavigationDrawerMain(this, toolbar, Constants.NAVMENU_FAQ).getMainNavigationDrawer();
-        informationList = dbHelper.getAllTODOLIST();
+
 
         selected_item_adapter = new AdvertisementAdapterSelectedItem(this,R.layout.list_selected_item_layout,arrayListSelectedItem);
-
 
         advertisementListView = (ListView)findViewById(R.id.listView);
         advertisementListView.setAdapter(selected_item_adapter);
 
-        Log.d("select", informationList.size()+"");
-        for(int i = 0 ; i < informationList.size() ; i++){
-            for(int j = 0 ; j < arrayListAdvertisement.size() ; j++){
-                Log.d("select",informationList.get(i).getId_selected_item()+" "+arrayListAdvertisement.get(j).getId() );
-                if(informationList.get(i).getId_selected_item()==arrayListAdvertisement.get(j).getId()){
-                    arrayListSelectedItem.add(arrayListAdvertisement.get(j));
-                }
-            }
-        }
+        informationList = dbHelper.getAllTODOLIST();
+
+        arrayListSelectedItem.removeAll(arrayListSelectedItem);
         selected_item_adapter.notifyDataSetChanged();
 
+        for(int j = 0 ; j < arrayListAdvertisement.size() ; j++){
+            if(arrayListAdvertisement.get(j).getIcon_asterisk_inf() == 1){
+                    arrayListSelectedItem.add(arrayListAdvertisement.get(j));
+                    selected_item_adapter.notifyDataSetChanged();
+                }
+        }
+
+        dbHelper.close();
     }
 
     public void onBackPressed(){
