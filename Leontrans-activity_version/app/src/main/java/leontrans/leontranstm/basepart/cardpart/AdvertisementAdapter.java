@@ -50,11 +50,15 @@ public class AdvertisementAdapter extends ArrayAdapter<AdvertisementInfo> {
         dbHelper = new DBHelper(getContext());
 
         icon_asterisk = (ImageView) view.findViewById(R.id.icon_asterisk);
+        icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
+        icon_asterisk.setTag(R.drawable.icon_asterisk_1);
 
-        if(advertisementInfoList.get(position).getIcon_asterisk_inf() == 0){
-            icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-        }else {
+        if(dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
             icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
+            icon_asterisk.setTag(R.drawable.icon_asterisk_2);
+        }else{
+            icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
+            icon_asterisk.setTag(R.drawable.icon_asterisk_1);
         }
 
         TextView trans_type = (TextView) view.findViewById(R.id.trans_type);
@@ -149,21 +153,22 @@ public class AdvertisementAdapter extends ArrayAdapter<AdvertisementInfo> {
             public void onClick(View view) {
                 Toast toast_choose = Toast.makeText(getContext(),"Оголошення додано до ібранного", Toast.LENGTH_SHORT);
                 Toast toast_close = Toast.makeText(getContext(),"Оголошення  видалено", Toast.LENGTH_SHORT);
+                Toast toast_exist = Toast.makeText(getContext(),"Оголошення  існує", Toast.LENGTH_SHORT);
 
-                if(advertisementInfoList.get(position).getIcon_asterisk_inf() == 0){
-                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
-                    advertisementInfoList.get(position).setIcon_asterisk_inf(1);
-                    dbHelper.insertContact(advertisementInfoList.get(position).getId());
-
-                    toast_choose.show();
-                }else{
+                if(dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
                     icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-                    advertisementInfoList.get(position).setIcon_asterisk_inf(0);
+                    icon_asterisk.setTag(R.drawable.icon_asterisk_1);
                     dbHelper.deleteContact(advertisementInfoList.get(position).getId());
                     toast_close.show();
+                }else{
+                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
+                    icon_asterisk.setTag(R.drawable.icon_asterisk_2);
+                    dbHelper.insertContact(advertisementInfoList.get(position).getId());
+                    toast_choose.show();
                 }
             }
         });
+
         dbHelper.close();
 
         return view;

@@ -59,6 +59,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 "id_selected_item=? ",
                 new String[] { Integer.toString(id) });
     }
+    public boolean checkIfExist(String fieldValue) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String Query = "Select * from " + MY_TABLE_TO_DO_LIST + " where " + TO_DO_LIST_COLUMN_NAME + " = " + fieldValue;
+
+        Cursor res  = db.rawQuery(Query, null);
+
+        if(res.getCount() <= 0){
+            res.close();
+            return false;
+        }
+        res.close();
+        return true;
+    }
 
     public ArrayList<DBinformation> getAllTODOLIST() {
         ArrayList<DBinformation> array_list = new ArrayList<DBinformation>();

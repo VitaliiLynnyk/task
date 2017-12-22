@@ -36,14 +36,12 @@ public class AdvertisementInfo {
     private String trans_length;
     private String trans_trailer;
     private String pay_form_moment;
-    private int icon_asterisk_inf;
 
     private RoutPointsCoordinates routPointsCoordinates;
 
     public AdvertisementInfo(JSONObject list, AdvertisementOwnerInfo advertisementOwnerInfo, Context context, Locale locale) throws JSONException {
         this.context = context;
         this.id = Integer.parseInt(list.getString("id"));
-        this.icon_asterisk_inf = 0;
         this.trans_trailer = getTrans_trailer(list.getString("trans_trailer"));
         this.trans_height = list.getString("trans_height");
         this.trans_width = list.getString("trans_width");
@@ -76,14 +74,6 @@ public class AdvertisementInfo {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIcon_asterisk_inf() {
-        return icon_asterisk_inf;
-    }
-
-    public void setIcon_asterisk_inf(int icon_asterisk_inf) {
-        this.icon_asterisk_inf = icon_asterisk_inf;
     }
 
     private String getPay_form_moment(String pay_form, String pay_moment){

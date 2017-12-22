@@ -132,12 +132,10 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
             imageView.setImageResource(R.drawable.icon_cargo);
         }
 
-
         icon_asterisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dbHelper.deleteContact(advertisementInfoList.get(position).getId());
-                arrayListAdvertisement.get(position).setIcon_asterisk_inf(0);
                 advertisementInfoList.remove(position);
                 notifyDataSetChanged();
             }
@@ -151,7 +149,6 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 BottomDialog bottomDialog = BottomDialog.newInstance(activity.getResources().getString(R.string.telephone_numbers), activity.getResources().getString(R.string.close_telephone_dialog), telephoneNumbers);
                 bottomDialog.setListener(new BottomDialog.OnClickListener() {
                     @Override
@@ -159,7 +156,6 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
                         new SystemServicesUtils().startDial(activity, telephoneNumbers[i]);
                     }
                 });
-
                 bottomDialog.show(activity.getSupportFragmentManager(),"dialogTag");
             }
         };

@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,13 +35,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import leontrans.leontranstm.DBinformation;
 import leontrans.leontranstm.R;
 import leontrans.leontranstm.utils.Constants;
 import leontrans.leontranstm.utils.NavigationDrawerMain;
 import leontrans.leontranstm.utils.SiteDataParseUtils;
-
-import static leontrans.leontranstm.basepart.cardpart.AdvertisementAdapter.dbHelper;
 
 public class CardsActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -51,10 +47,8 @@ public class CardsActivity extends AppCompatActivity {
     private SiteDataParseUtils siteDataUtils;
     private ActionBarDrawerToggle drawerToggle;
 
-
     private Toolbar toolbar;
     private Drawer.Result mainNavigationDrawer;
-
 
     private ProgressBar loaderView;
     private ConstraintLayout contentArea;
