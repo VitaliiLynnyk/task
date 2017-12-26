@@ -1,4 +1,4 @@
-package leontrans.leontranstm.basepart.cardpart;
+package leontrans.leontranstm.basepart.favouritespart;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,29 +11,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.kcode.bottomlib.BottomDialog;
 
 import java.util.ArrayList;
 
-import leontrans.leontranstm.DBHelper;
 import leontrans.leontranstm.R;
-import leontrans.leontranstm.basepart.FAQActivity;
+import leontrans.leontranstm.basepart.cardpart.AdvertisementInfo;
 import leontrans.leontranstm.basepart.userprofile.UserCardOwenerProfile;
 import leontrans.leontranstm.utils.SystemServicesUtils;
 
-import static leontrans.leontranstm.basepart.cardpart.CardsActivity.arrayListAdvertisement;
-
-
 public class AdvertisementAdapterSelectedItem extends ArrayAdapter<AdvertisementInfo> {
-    private FAQActivity activity;
+    private FavouriteCardsActivity activity;
     private LayoutInflater inflater;
     private ArrayList<AdvertisementInfo> advertisementInfoList;
     public  ImageView icon_asterisk;
     public static DBHelper dbHelper;
 
-    public AdvertisementAdapterSelectedItem(FAQActivity activity, int resource, ArrayList<AdvertisementInfo> advertisementInfoList) {
+    public AdvertisementAdapterSelectedItem(FavouriteCardsActivity activity, int resource, ArrayList<AdvertisementInfo> advertisementInfoList) {
         super(activity, resource, advertisementInfoList);
         this.advertisementInfoList = advertisementInfoList;
         this.activity = activity;
@@ -51,7 +46,7 @@ public class AdvertisementAdapterSelectedItem extends ArrayAdapter<Advertisement
 
         icon_asterisk = (ImageView) view.findViewById(R.id.icon_asterisk);
 
-        icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
+        icon_asterisk.setImageResource(R.drawable.icon_favourite);
 
 
         TextView trans_type = (TextView) view.findViewById(R.id.trans_type);

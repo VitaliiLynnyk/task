@@ -1,8 +1,4 @@
-package leontrans.leontranstm;
-
-/**
- * Created by linni on 12/14/2017.
- */
+package leontrans.leontranstm.basepart.favouritespart;
 
 public class DBinformation {
     private int id ;

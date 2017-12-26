@@ -2,10 +2,8 @@ package leontrans.leontranstm.basepart.cardpart;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +17,9 @@ import com.kcode.bottomlib.BottomDialog;
 
 import java.util.ArrayList;
 
-import leontrans.leontranstm.DBHelper;
+import leontrans.leontranstm.basepart.favouritespart.DBHelper;
 import leontrans.leontranstm.R;
 import leontrans.leontranstm.basepart.userprofile.UserCardOwenerProfile;
-import leontrans.leontranstm.utils.RoutPointsCoordinates;
 import leontrans.leontranstm.utils.SystemServicesUtils;
 
 
@@ -50,15 +47,16 @@ public class AdvertisementAdapter extends ArrayAdapter<AdvertisementInfo> {
         dbHelper = new DBHelper(getContext());
 
         icon_asterisk = (ImageView) view.findViewById(R.id.icon_asterisk);
-        icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-        icon_asterisk.setTag(R.drawable.icon_asterisk_1);
+        icon_asterisk.setImageResource(R.drawable.icon_unfavourite);
+        icon_asterisk.setTag(R.drawable.icon_unfavourite);
 
         if(dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
-            icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
-            icon_asterisk.setTag(R.drawable.icon_asterisk_2);
+            advertisementInfoList.get(position).setInFavourite(true);
+            icon_asterisk.setImageResource(R.drawable.icon_favourite);
+            icon_asterisk.setTag(R.drawable.icon_favourite);
         }else{
-            icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-            icon_asterisk.setTag(R.drawable.icon_asterisk_1);
+            icon_asterisk.setImageResource(R.drawable.icon_unfavourite);
+            icon_asterisk.setTag(R.drawable.icon_unfavourite);
         }
 
         TextView trans_type = (TextView) view.findViewById(R.id.trans_type);
@@ -151,21 +149,29 @@ public class AdvertisementAdapter extends ArrayAdapter<AdvertisementInfo> {
         icon_asterisk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast_choose = Toast.makeText(getContext(),"Оголошення додано до ібранного", Toast.LENGTH_SHORT);
-                Toast toast_close = Toast.makeText(getContext(),"Оголошення  видалено", Toast.LENGTH_SHORT);
-                Toast toast_exist = Toast.makeText(getContext(),"Оголошення  існує", Toast.LENGTH_SHORT);
+                Toast toast_choose = Toast.makeText(getContext(),R.string.saved_favourite_bids, Toast.LENGTH_SHORT);
+                Toast toast_close = Toast.makeText(getContext(),R.string.delete_favourite_bids, Toast.LENGTH_SHORT);
 
-                if(dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
-                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_1);
-                    icon_asterisk.setTag(R.drawable.icon_asterisk_1);
-                    dbHelper.deleteContact(advertisementInfoList.get(position).getId());
-                    toast_close.show();
-                }else{
-                    icon_asterisk.setImageResource(R.drawable.icon_asterisk_2);
-                    icon_asterisk.setTag(R.drawable.icon_asterisk_2);
-                    dbHelper.insertContact(advertisementInfoList.get(position).getId());
+
+                if(!advertisementInfoList.get(position).getInFavourite()){
+                    advertisementInfoList.get(position).setInFavourite(true);
+                    icon_asterisk.setImageResource(R.drawable.icon_favourite);
+                    icon_asterisk.setTag(R.drawable.icon_favourite);
                     toast_choose.show();
+                    if(!dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
+                        dbHelper.insertContact(advertisementInfoList.get(position).getId());
+                    }
+                }else{
+                    icon_asterisk.setImageResource(R.drawable.icon_unfavourite);
+                    icon_asterisk.setTag(R.drawable.icon_unfavourite);
+                    advertisementInfoList.get(position).setInFavourite(false);
+                    toast_close.show();
+                    if(dbHelper.checkIfExist(Integer.toString(advertisementInfoList.get(position).getId()))){
+                        dbHelper.deleteContact(advertisementInfoList.get(position).getId());
+                    }
                 }
+
+                notifyDataSetChanged();
             }
         });
 

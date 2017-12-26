@@ -19,8 +19,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import leontrans.leontranstm.R;
 import leontrans.leontranstm.basepart.cardpart.CardsActivity;
-import leontrans.leontranstm.basepart.FAQActivity;
-import leontrans.leontranstm.basepart.FilterSettingsActivity;
+import leontrans.leontranstm.basepart.favouritespart.FavouriteCardsActivity;
+import leontrans.leontranstm.basepart.filters.FilterSettingsActivity;
 import leontrans.leontranstm.basepart.userprofile.UserProfileActivity;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -58,7 +58,7 @@ public class NavigationDrawerMain {
                         new PrimaryDrawerItem().withName(R.string.my_profile).withIcon(FontAwesome.Icon.faw_user).withIdentifier(NAVMENU_PROFILE),
                         new PrimaryDrawerItem().withName(R.string.advertisement_list).withIcon(FontAwesome.Icon.faw_list_alt).withIdentifier(NAVMENU_CARDS),
                         new PrimaryDrawerItem().withName(R.string.filter_settings).withIcon(FontAwesome.Icon.faw_cogs).withIdentifier(NAVMENU_FILTER_SETTINGS),
-                        new PrimaryDrawerItem().withName("F.A.Q.").withIcon(FontAwesome.Icon.faw_question_circle).withIdentifier(NAVMENU_FAQ),
+                        new PrimaryDrawerItem().withName(R.string.favourite_cards_activity).withIcon(FontAwesome.Icon.faw_heart).withIdentifier(NAVMENU_FAQ),
 
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.app_settings).withIcon(FontAwesome.Icon. faw_info_circle).withIdentifier(7),
@@ -82,12 +82,12 @@ public class NavigationDrawerMain {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
 
-                        if (drawerItem.getIdentifier() == NAVMENU_ADMIN) {
+                        if (drawerItem != null && drawerItem.getIdentifier() == NAVMENU_ADMIN) {
                             SharedPreferences sharedPreferences = activity.getSharedPreferences("hashPassword", MODE_PRIVATE);
                             sharedPreferences.edit().clear().commit();
                         } //TODO admin exit button. Developing part only!
 
-                        if (drawerItem.getIdentifier() == idSelectedDrawerItem) return;
+                        if (drawerItem == null || drawerItem.getIdentifier() == idSelectedDrawerItem) return;
 
                         idSelectedDrawerItem = drawerItem.getIdentifier();
                         selectedDrawerItem = drawerItem;
@@ -126,7 +126,7 @@ public class NavigationDrawerMain {
                 }
 
                 case NAVMENU_FAQ: {
-                    activity.startActivity(new Intent(activity, FAQActivity.class));
+                    activity.startActivity(new Intent(activity, FavouriteCardsActivity.class));
                     break;
                 }
                 case 7:{

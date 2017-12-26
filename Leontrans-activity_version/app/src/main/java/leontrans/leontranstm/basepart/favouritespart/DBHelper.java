@@ -1,4 +1,4 @@
-package leontrans.leontranstm;
+package leontrans.leontranstm.basepart.favouritespart;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,10 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-
-/**
- * Created by linni on 12/14/2017.
- */
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final int DB_Version = 1;

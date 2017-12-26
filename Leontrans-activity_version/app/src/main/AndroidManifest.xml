@@ -27,16 +27,39 @@
             android:noHistory="true" />
         <activity android:name=".basepart.cardpart.CardsActivity" />
         <activity
-            android:name=".basepart.FAQActivity"
+            android:name=".basepart.favouritespart.FavouriteCardsActivity"
             android:noHistory="true" />
         <activity
-            android:name=".basepart.FilterSettingsActivity"
+            android:name=".basepart.filters.FilterSettingsActivity"
             android:noHistory="true" />
         <activity android:name=".basepart.userprofile.UserCardOwenerProfile" />
-        <activity android:name=".utils.LanguageDialogActivity"
-                  android:theme="@style/Theme.AppCompat.Dialog">
+        <activity
+            android:name=".utils.LanguageDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:noHistory="true"/>
+        <activity
+            android:name=".basepart.filters.FilterSwitcherDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".basepart.filters.editor.FilterEditActivity" />
+        <activity
+            android:name=".basepart.filters.editor.DocsSelectorDialog"
+            android:theme="@style/Theme.AppCompat.Dialog">
 
         </activity>
+        <activity
+            android:name=".basepart.filters.editor.LoadTypeSelectorDialog"
+            android:theme="@style/Theme.AppCompat.Dialog">
+
+        </activity>
+        <activity android:name=".basepart.filters.editor.AdrSelectorDialog"
+            android:theme="@style/Theme.AppCompat.Dialog">
+
+        </activity>
+
+        <service
+            android:enabled="true"
+            android:name=".backgraund.CheckNewCardsService">
+        </service>
     </application>
 
 </manifest>

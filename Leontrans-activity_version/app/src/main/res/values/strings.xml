@@ -9,7 +9,8 @@
 
 
     <string name="test_text_card_view_activity">Card View</string>
-    <string name="menu_item_title">showFilterNavigationDrawer</string>
+    <string name="menu_item_title">showFilter navigation drawer</string>
+    <string name="reload_activity_cards_menu">Reload card activity</string>
 
     <string name="TV_name">Name</string>
     <string name="TV_city">City</string>
@@ -25,6 +26,7 @@
     <string name="TV_last_online">last online</string>
 
     <string name="date_to">date_to</string>
+    <string name="no_date">no date</string>
     <string name="date_from">date_from</string>
     <string name="type">type</string>
     <string name="city_from_ru">city_from_ru</string>
@@ -43,9 +45,8 @@
     <string name="fulluntent">fulluntent</string>
     <string name="uncrossbar">uncrossbar</string>
     <string name="unrack">unrack</string>
-    <string name="gydrobort">gydrobort</string>
-
     <string name="ungate">ungate</string>
+    <string name="gydrobort">gydrobort</string>
 
     <string name="any">any</string>
     <string name="bus">bus</string>
@@ -96,6 +97,113 @@
     <string name="my_profile">My profile</string>
     <string name="advertisement_list">Advertisement list</string>
     <string name="filter_settings">Filter settings</string>
+    <string name="favourite_cards_activity">Favourites</string>
     <string name="app_settings">Settings</string>
+
+    <string name="filter_1">Filter 1</string>
+    <string name="filter_2">Filter 2</string>
+    <string name="filter_3">Filter 3</string>
+    <string name="filter_4">Filter 4</string>
+    <string name="filter_5">Filter 5</string>
+    <string name="filter_6">Filter 6</string>
+    <string name="filter_7">Filter 7</string>
+    <string name="filter_8">Filter 8</string>
+    <string name="filter_9">Filter 9</string>
+    <string name="filter_10">Filter 10</string>
+
+    <string name="cancel_filter_btn">Cancel</string>
+    <string name="save_filter_btn">Save</string>
+
+    <string name="tir">TIR</string>
+    <string name="cmr">CMR</string>
+    <string name="ekmt">EKMT</string>
+    <string name="t1">T1</string>
+    <string name="mbook">Medical book</string>
+    <string name="customscontrol">The customs control</string>
+
+    <string name="dangerous">Dangerous</string>
+    <string name="undangerous">Not dangerous</string>
+    <string name="adr1">ADR 1</string>
+    <string name="adr2">ADR 2</string>
+    <string name="adr3">ADR 3</string>
+    <string name="adr4">ADR 4</string>
+    <string name="adr5">ADR 5</string>
+    <string name="adr6">ADR 6</string>
+    <string name="adr7">ADR 7</string>
+    <string name="adr8">ADR 8</string>
+    <string name="adr9">ADR 9</string>
+    <string name="adr10">ADR 10</string>
+
+
+    <string-array name="notify_types">
+        <item>Not selected</item>
+        <item>Car</item>
+        <item>Luggage</item>
+    </string-array>
+
+    <string-array name="car_types">
+        <item>Not selected</item>
+        <item>any</item>
+        <item>bus</item>
+        <item>avto</item>
+        <item>fuel_oil</item>
+        <item>concrete</item>
+        <item>gas</item>
+        <item>hard</item>
+        <item>grain</item>
+        <item>isotherms</item>
+        <item>containertrans</item>
+        <item>tap</item>
+        <item>closed</item>
+        <item>trees</item>
+        <item>microbus</item>
+        <item>oversized</item>
+        <item>unclosed</item>
+        <item>refrigerator</item>
+        <item>tipper</item>
+        <item>animaltruck</item>
+        <item>awning</item>
+        <item>trall</item>
+        <item>avtotipper</item>
+        <item>fullmetal</item>
+        <item>fuel_oil_small</item>
+        <item>evacuator</item>
+    </string-array>
+
+    <string-array name="car_kind">
+        <item>Not selected</item>
+        <item>truck</item>
+        <item>trailer</item>
+        <item>half-trailer</item>
+    </string-array>
+
+    <string name="capacity_from">capacity from</string>
+    <string name="capacity_to">capacity to</string>
+    <string name="weight_from">weight from</string>
+    <string name="weight_to">weight to</string>
+
+    <string name="country_from">country from</string>
+    <string name="country_to">country to</string>
+    <string name="city_from">city from</string>
+    <string name="city_to">city to</string>
+
+    <string name="notification_type">Notification type</string>
+    <string name="car_type">Car type</string>
+    <string name="car_kind">The kind of car</string>
+
+    <string name="loading">Loading</string>
+    <string name="docs">Documents</string>
+    <string name="adr">ADR</string>
+
+
+    <string name="notification_title">New bids!</string>
+    <string name="notification_content">There is new bid on your filters.</string>
+    <string name="notification_warning">Check new bids!</string>
+
+
+    <string name="saved_favourite_bids">Bid saved in favourite</string>
+    <string name="delete_favourite_bids">Bid deleted from favourite</string>
+
+
 
 </resources>

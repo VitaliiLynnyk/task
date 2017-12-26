@@ -10,6 +10,7 @@
 
     <string name="test_text_card_view_activity">Card View</string>
     <string name="menu_item_title">showFilterNavigationDrawer</string>
+    <string name="reload_activity_cards_menu">Оновити оголошення</string>
 
     <string name="TV_name">Ім\'я</string>
     <string name="TV_city">Місто</string>
@@ -25,6 +26,7 @@
     <string name="TV_last_online">Останнє в мережі</string>
 
     <string name="date_to">date_to</string>
+    <string name="no_date">без дати</string>
     <string name="date_from">date_from</string>
     <string name="type">type</string>
     <string name="city_from_ru">city_from_ru</string>
@@ -100,5 +102,67 @@
     <string name="my_profile">Мій профіль</string>
     <string name="advertisement_list">Список оголошень</string>
     <string name="filter_settings">Налаштування фільтрів</string>
+    <string name="favourite_cards_activity">Обране</string>
     <string name="app_settings">Налаштування</string>
+
+    <string name="filter_1">Фільтр 1</string>
+    <string name="filter_2">Фільтр 2</string>
+    <string name="filter_3">Фільтр 3</string>
+    <string name="filter_4">Фільтр 4</string>
+    <string name="filter_5">Фільтр 5</string>
+    <string name="filter_6">Фільтр 6</string>
+    <string name="filter_7">Фільтр 7</string>
+    <string name="filter_8">Фільтр 8</string>
+    <string name="filter_9">Фільтр 9</string>
+    <string name="filter_10">Фільтр 10</string>
+
+    <string name="cancel_filter_btn">Відмінити</string>
+    <string name="save_filter_btn">Зберегти</string>
+
+    <string name="tir">TIR</string>
+    <string name="cmr">CMR</string>
+    <string name="ekmt">EKMT</string>
+    <string name="t1">T1</string>
+    <string name="mbook">Мед. книжка</string>
+    <string name="customscontrol">Митний контроль"</string>
+
+    <string name="dangerous">Небезпечний</string>
+    <string name="undangerous">Безпечний</string>
+    <string name="adr1">ADR 1</string>
+    <string name="adr2">ADR 2</string>
+    <string name="adr3">ADR 3</string>
+    <string name="adr4">ADR 4</string>
+    <string name="adr5">ADR 5</string>
+    <string name="adr6">ADR 6</string>
+    <string name="adr7">ADR 7</string>
+    <string name="adr8">ADR 8</string>
+    <string name="adr9">ADR 9</string>
+    <string name="adr10">ADR 10</string>
+
+    <string name="capacity_from">Об\'єм від, м3</string>
+    <string name="capacity_to">Об\'єм  До, м3</string>
+    <string name="weight_from">Вага От, т</string>
+    <string name="weight_to">Вага До, т</string>
+
+    <string name="country_from">Країна звідки</string>
+    <string name="country_to">Країна куди</string>
+    <string name="city_from">Місто звідки</string>
+    <string name="city_to">Місто куди</string>
+
+    <string name="notification_type">Тип оголошення</string>
+    <string name="car_type">Тип авто</string>
+    <string name="car_kind">Вид авто</string>
+
+    <string name="loading">Завантаження</string>
+    <string name="docs">Документи</string>
+    <string name="adr">ADR</string>
+
+    <string name="notification_title">Нове оголошення!</string>
+    <string name="notification_content">За вашими фільтрами було знайдено нове оголошення.</string>
+    <string name="notification_warning">Перевірте нові оголошення!</string>
+
+
+    <string name="saved_favourite_bids">Оголошення додано до обраних</string>
+    <string name="delete_favourite_bids">Оголошення видалено із обраних</string>
+
 </resources>

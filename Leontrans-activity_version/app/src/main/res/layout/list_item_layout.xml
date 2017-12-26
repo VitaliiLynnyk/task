@@ -231,7 +231,7 @@
             android:id="@+id/icon_asterisk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/icon_asterisk_1" />
+            app:srcCompat="@drawable/icon_unfavourite" />
 
     </LinearLayout>
 
